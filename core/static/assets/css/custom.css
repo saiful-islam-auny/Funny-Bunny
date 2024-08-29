@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#main {
+    flex: 1;
+}
+
+footer {
+    background-color: #27292A;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 20px;
+    padding: 5px 0;
+    width: 100%;
+}
+
+
+
+/* Custom Styles for Login and Registration Pages */
+
+
+.card {
+    margin-top: 100px !important;
+    background-color: #E75E8D; /* Pink background color */
+    color: #FFFFFF; /* White text color */
+}
+
+.form-control {
+    margin-bottom: 10px;
+    background-color: transparent; /* Transparent background for form inputs */
+    border-color: #FFFFFF; /* White border color for form inputs */
+    color: #FFFFFF; /* White text color for form inputs */
+}
+
+.btn-primary {
+    background-color: #E75E8D; /* Pink button background color */
+    border-color: #ffffff; /* Pink button border color */
+    color: #FFFFFF; /* White text color for button */
+}
+
+.btn-primary:hover {
+    background-color: #FFFFFF; /* White button background color on hover */
+    color: #E75E8D; /* Pink text color on button hover */
+}
+
+.logout-btn {
+    background-color: #943d5c; /* Original background color */
+    color: white; /* Text color */
+    border: none; /* Removes default button border */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 25px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+
+  .logout-btn:hover {
+    background-color: #e75e8d; /* Background color on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+
+
+
+  .rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.rating input[type="radio"]:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #f0a;
+}

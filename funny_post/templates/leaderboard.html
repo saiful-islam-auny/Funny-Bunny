@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-content">
+                {% comment %} <div class="main-banner">
+                    <div class="header-text text-center">
+                        <h4><em>Leaderboard</em> - Most Liked Jokes</h4>
+                    </div>
+                </div> {% endcomment %}
+    <h1 class="text-center">Top 5 Most liked Jokes</h1>
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {% if jokes %}
+                                <ul class="list-group">
+                                    {% for joke in jokes %}
+                                    <li class="list-group-item d-flex flex-column mb-4 bg-white">
+                                        <div class="card-body" style="color: black; font-size: 16px;">
+                                            <h5 class="card-title" style="font-weight: bold; color: black;">{{ joke.title }}</h5>
+                                            <p class="card-text" style="margin-top: 10px; color: black;">{{ joke.content }}</p>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <div>
+                                                    <!-- Like button with icon -->
+                                                    {% if user.is_authenticated %}
+                                                    <a href="{% url 'like_joke' joke.id %}" class="btn btn-outline-primary">
+                                                        <i class="fas fa-thumbs-up"></i> Like
+                                                        <span class="badge bg-primary ms-2">{{ joke.like_count }}</span>
+                                                    </a>
+                                                    {% else %}
+                                                    <span class="btn btn-outline-primary disabled">
+                                                        <i class="fas fa-thumbs-up"></i> Like
+                                                        <span class="badge bg-primary ms-2">{{ joke.like_count }}</span>
+                                                    </span>
+                                                    {% endif %}
+                                                    <!-- Share button with icon -->
+                                                    {% if user.is_authenticated %}
+                                                    <a href="{% url 'share_joke' joke.id %}" class="btn btn-outline-secondary ms-2">
+                                                        <i class="fas fa-share"></i> Share
+                                                        <span class="badge bg-secondary ms-2">{{ joke.share_count }}</span>
+                                                    </a>
+                                                    {% else %}
+                                                    <span class="btn btn-outline-secondary disabled ms-2">
+                                                        <i class="fas fa-share"></i> Share
+                                                        <span class="badge bg-secondary ms-2">{{ joke.share_count }}</span>
+                                                    </span>
+                                                    {% endif %}
+                                                </div>
+                                                <div>
+                                                    <!-- Comment button with icon -->
+                                                    <button class="btn btn-outline-info" onclick="toggleCommentForm({{ joke.id }})">
+                                                        <i class="fas fa-comment"></i> Comment
+                                                        <span class="badge bg-info ms-2">{{ joke.comment_count }}</span>
+                                                    </button>
+                                                </div>
+                                                {% comment %} <div>
+                                                    <!-- Average Rating -->
+                                                    <span class="d-flex align-items-center">
+                                                        <i class="fas fa-star me-1"></i>
+                                                        <span class="badge bg-warning">{{ joke.avg_rating|floatformat:1 }} / 5</span>
+                                                    </span>
+                                                </div> {% endcomment %}
+                                            </div>
+                                        </div>
+
+                                        <!-- Hidden comment form -->
+                                        <div id="comment-form-{{ joke.id }}" class="card-body" style="display: none;">
+                                            <form method="post" action="{% url 'add_comment' joke.id %}">
+                                                {% csrf_token %}
+                                                <div class="mb-3">
+                                                    <textarea class="form-control" name="content" rows="3" placeholder="Add a comment..." style="color: #333;"></textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                            </form>
+
+                                            <!-- Display existing comments -->
+                                            <div class="mt-3">
+                                                {% for comment in joke.comments.all %}
+                                                <div class="border p-2 mb-2 rounded bg-light">
+                                                    <strong style="color: black; font-weight: bold;">{{ comment.user.username }}</strong>
+                                                    <p>{{ comment.content }}</p>
+                                                    <small class="text-muted">Posted on {{ comment.commented_at }}</small>
+                                                </div>
+                                                {% empty %}
+                                                <p>No comments yet.</p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>No jokes available yet.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleCommentForm(jokeId) {
+        var form = document.getElementById('comment-form-' + jokeId);
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script>
+
+{% endblock %}
