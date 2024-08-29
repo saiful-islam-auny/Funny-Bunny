@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Your secret key
 SECRET_KEY = env("SECRET_KEY")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://funny-bunny-ae8g.onrender.com','https://*.127.0.0.1'] # first part will be your deploy project’s domain name
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
