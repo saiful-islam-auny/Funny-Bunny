@@ -335,13 +335,14 @@ Header Style
 */
 
 .background-header {
-  background-color: #150202 !important;
-  height: 70px!important;
+  background-color: #1F2122 !important;
+  align-content: center !important;
+  height: 90px!important;
   position: fixed!important;
   top: 0!important;
   left: 0;
   right: 0;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.15)!important;
   -webkit-transition: all .5s ease 0s;
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
@@ -411,7 +412,7 @@ Header Style
 }
 
 .header-area .main-nav .logo img {
-  width: 191px;
+  width: 140px;
 }
 
 .background-header .main-nav .logo {
@@ -419,7 +420,7 @@ Header Style
 }
 
 .background-header .main-nav .logo img {
-  width: 180px;
+  width: 140px;
 }
 
 .header-area .main-nav .nav {
