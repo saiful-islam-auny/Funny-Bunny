@@ -1,3 +1,4 @@
+/* General Body Styles */
 body {
     display: flex;
     flex-direction: column;
@@ -17,11 +18,7 @@ footer {
     width: 100%;
 }
 
-
-
 /* Custom Styles for Login and Registration Pages */
-
-
 .card {
     margin-top: 100px !important;
     background-color: #E75E8D; /* Pink background color */
@@ -56,16 +53,14 @@ footer {
     font-weight: bold; /* Bold text */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-  }
+}
 
-  .logout-btn:hover {
+.logout-btn:hover {
     background-color: #e75e8d; /* Background color on hover */
     transform: scale(1.05); /* Slight zoom on hover */
-  }
+}
 
-
-
-  .rating input[type="radio"] {
+.rating input[type="radio"] {
     display: none;
 }
 
@@ -81,3 +76,4 @@ footer {
 .rating label:hover ~ label {
     color: #f0a;
 }
+

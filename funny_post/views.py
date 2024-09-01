@@ -161,6 +161,5 @@ def leaderboard(request):
         comment_count=Count('comments'),
         avg_rating=Avg('ratings__stars')
     ).order_by('-like_count')[:5]
-    
-    return render(request, 'leaderboard.html', {'jokes': jokes})
 
+    return render(request, 'leaderboard.html', {'jokes': jokes})
