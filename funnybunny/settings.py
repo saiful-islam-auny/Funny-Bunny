@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Your secret key
 SECRET_KEY = env("SECRET_KEY")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-ALLOWED_HOSTS = ['funny-bunny-ae8g.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['https://funny-bunny-oh05.onrender.com', '127.0.0.1', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://funny-bunny-oh05.onrender.com']
 
 # Quick-start development settings - unsuitable for production
